@@ -3,15 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: galambey <galambey@student.42.fr>          +#+  +:+       +#+         #
+#    By: garance <garance@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/26 13:55:00 by galambey          #+#    #+#              #
-#    Updated: 2023/05/29 17:03:20 by galambey         ###   ########.fr        #
+#    Updated: 2023/05/29 19:23:52 by garance          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
-SRC = ft_split_mode.c#ft_printf.c \
+SRC = ft_split_mode.c
+#ft_printf.c \
 	ft_split_mode.c
 OBJ = $(SRC:.c=.o)
 CC = cc

@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split_mode.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: galambey <galambey@student.42.fr>          +#+  +:+       +#+        */
+/*   By: garance <garance@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 14:47:09 by galambey          #+#    #+#             */
-/*   Updated: 2023/05/29 17:07:44 by galambey         ###   ########.fr       */
+/*   Updated: 2023/05/29 20:34:22 by garance          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
+#include "libft.h"
 
 int ft_c_wd(char *s, char c) //a mettre en static pour le rendu
 {
@@ -54,6 +55,7 @@ static int ft_c_let(char *s, char c)
     int i;
 
     i = 0;
+    printf("ft_c_let s= %s\n", s);
     while (s[i] && s[i] != c)
         i++;
     return (i);
@@ -75,6 +77,7 @@ char	**ft_split_mode(char *s, char c) // comme appel protege dans ft_printf, s e
     j = 0;
     while (s[i])
     {
+        printf("\n1.s[%d] %c\n", i, s[i]);
         if (s[i] == c)
         {
             if (s[i + 1] == '\0')
@@ -83,11 +86,18 @@ char	**ft_split_mode(char *s, char c) // comme appel protege dans ft_printf, s e
         }
         else
             c_let = ft_c_let(s + i, c);
+        printf("2.c_let %d\n", c_let);
         array[j] = (char *)malloc(sizeof(char) * (c_let + 1));
         if (!array[j])
             return (ft_free_all(array, j));
-        ft_strlcpy(array[j++], s + i, c_let + 1);
+        printf("3.array[%d] = %s\n", j, array[j]);
+        printf("4. i %d ET s+i %s ET c_let + 1 = %d ET sizeof(array[j] = %ld)\n", i, s + i, c_let + 1, sizeof(array[j]));
+        ft_strlcpy(array[j], s + i, c_let + 1);
+        printf("5.array[%d] %s\n", j, array[j]);
+        j++;
+        printf("6.i %d c_let %d\n", i, c_let);
         i += c_let;
+        printf("7.i + c_let %d\n", i);
     }
     array[j] = NULL;
     return (array);

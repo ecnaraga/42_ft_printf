@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: galambey <galambey@student.42.fr>          +#+  +:+       +#+        */
+/*   By: garance <garance@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 12:47:50 by galambey          #+#    #+#             */
-/*   Updated: 2023/05/29 17:08:14 by galambey         ###   ########.fr       */
+/*   Updated: 2023/05/29 20:02:19 by garance          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 #include <stdio.h>
 
 //main ft_split_mode > Pas de controle si !s car ne sera jamais envoye s=NULL
@@ -43,13 +43,18 @@ int main(void)
         j = 0;
         strs = ft_split_mode(array[i], '%');
         c_wd = ft_c_wd(array[i], '%');
+        printf("c_wd %d\n", c_wd);
         printf("\narray[%d] = '%s'\n", i, array[i]);
-        while (strs[j])
+        while (j < c_wd)
         {
             printf("strs[%d] = '%s'\n", j, strs[j]);
-            free(strs[j++]);
+            printf("J %d\n", j);
+            free(strs[j]);
+            printf("test");
+            j++;
         }
         free(strs);
+        i++;
     }
     
     return (0);
