@@ -1,0 +1,7 @@
+
+typedef int entier
+
+t_fp_list a a est un pointeur sur fonction
+
+storage[0] = NULL
+storage['c'] = pointeur sur la fonction multiply
