@@ -1,5 +1,5 @@
 # READ ME
- 
+
 # Objectif
   - Implementer la fonction printf de la libc
   - Elle devra gerer les conversions suivantes : cspdiuxX%
